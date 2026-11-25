@@ -40,7 +40,30 @@ These results are reported under the experimental conditions described in the pu
 
 ## Code and Data Availability
 
-This repository currently contains the project licence. Research code, configurations and dataset materials are not yet included.
+This repository currently contains the project licence and code. Dataset materials are not yet included.
+
+## Files
+
+- `scirag_chatbot.py`: main research prototype and Tkinter interface.
+- `examples/sample_retrieval.jsonl`: synthetic sample context responses.
+- `tests/test_retrieval.py`: lightweight unit tests of the retrieval/prompt functions.
+- `requirements.txt`: approximate installation dependencies (not an original environment lockfile).
+
+## Setup
+
+Python 3.10+ is recommended. Tkinter must be present in your Python installation. This application also requires a **compatible local Hugging Face causal-LM checkpoint** that you have permission to use.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate   # On Windows: .venv\\Scripts\\activate
+pip install -r requirements.txt
+python -m unittest discover -s tests -v
+python scirag_chatbot.py --model-path /path/to/your/causal-lm-checkpoint
+```
+
+For 4-bit inference on a supported NVIDIA GPU, separately install a compatible `bitsandbytes` package, then add `--four-bit`.
+
+The default sample corpus is only for testing basic retrieval; it does **not** reproduce the paper's dataset or evaluation. Replace it with appropriately licensed, anonymised records in JSONL format, one `{ "response": "..." }` object per line, using `--corpus path/to/file.jsonl`. Avoid uploading participant conversations or personal details.
 
 ## Publication
 
