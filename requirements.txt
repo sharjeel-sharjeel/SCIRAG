@@ -1,0 +1,8 @@
+# Research prototype. Exact versions of the original 2026 experiments are not documented here.
+numpy>=1.24,<3
+sentence-transformers>=3,<6
+transformers>=4.44,<5
+torch>=2.3
+accelerate>=0.33
+# Optional, CUDA/Linux only for --four-bit:
+# bitsandbytes>=0.43
